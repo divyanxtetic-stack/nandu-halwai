@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old book countdown · 17 May</title>
+
+    <title>for her · may 17 surprise</title>
+
+    <!-- PREMIUM FONTS -->
+    <!-- PREMIUM FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&family=Special+Elite&display=swap"
+        rel="stylesheet">
+
     <style>
-        /* vintage book foundation */
+        :root {
+            --bg-deep: #050505;
+            --burgundy: #5e0b0b;
+            --burgundy-bright: #8b0000;
+            --gold: #c5a021;
+            --silver: #c0c0c0;
+            --text-light: #e0e0e0;
+            --container-bg: rgba(18, 12, 12, 0.95);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,260 +31,367 @@
         }
 
         body {
-            background: #b7a58b;  /* aged leather / book cover */
-            background-image: radial-gradient(circle at 30% 40%, #cfbea5 2px, transparent 2px), 
-                              radial-gradient(circle at 70% 80%, #cfbea5 1px, transparent 2px);
-            background-size: 50px 50px, 80px 80px;
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-family: 'Goudy Bookletter 1911', 'Palatino', 'Georgia', 'Times New Roman', serif;
-            padding: 16px;
-            margin: 0;
+            align-items: center;
+            font-family: 'Cinzel', serif;
+            overflow-x: hidden;
+            background: var(--bg-deep);
+            color: var(--text-light);
+            position: relative;
+            padding: 20px;
         }
+
+        /* Sleek Jail Bars */
+        .jail-bars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .bar {
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(90deg, #111, #333 50%, #111);
+            border-left: 1px solid rgba(197, 160, 33, 0.1);
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Subtle Cinematic Glow */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 30%, rgba(94, 11, 11, 0.15) 100%);
+            animation: atmosphericGlow 8s infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes atmosphericGlow {
+            0% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Stylized "Ink" Drips */
+        .drip {
+            position: fixed;
+            top: -20px;
+            width: 3px;
+            background: var(--burgundy);
+            border-radius: 0 0 5px 5px;
+            animation: dripFall 7s infinite;
+            z-index: 5;
+            box-shadow: 0 0 8px var(--burgundy-bright);
+        }
+
+        @keyframes dripFall {
+            0% {
+                transform: translateY(0);
+                height: 0;
+                opacity: 1;
+            }
+
+            40% {
+                height: 120px;
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh);
+                height: 20px;
+                opacity: 0;
+            }
+        }
+
+        /* ===== PREMIUM CONTAINER ===== */
 
         .container {
-            max-width: 700px;
-            width: 100%;
-            background: #fbf3e0;      /* old paper */
-            background-image: 
-                linear-gradient(to bottom, rgba(200,170,140,0.1), rgba(220,190,160,0.2)),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise" x="0%" y="0%" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.08 0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>');
-            background-blend-mode: overlay;
-            border: 14px double #9b7e5e;      /* antique double border */
-            border-radius: 20px 4px 24px 4px;
-            box-shadow: 
-                0 20px 35px -8px rgba(60, 40, 20, 0.7),
-                inset 0 -4px 8px rgba(160, 120, 80, 0.2),
-                inset 0 4px 6px #fff4e6;
-            padding: 2.2rem 1.8rem 2.5rem 1.8rem;
+            width: 700px;
+            max-width: 100%;
+            background: var(--container-bg);
+            border: 1px solid rgba(197, 160, 33, 0.2);
+            /* Subtle Gold Border */
+            border-radius: 4px;
+            /* More "decent" sharp corners */
+            padding: 80px 40px;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 20px rgba(94, 11, 11, 0.3);
+            backdrop-filter: blur(12px);
+            animation: cellFadeIn 2.5s ease;
             position: relative;
-            transition: all 0.2s ease;
+            z-index: 20;
+            margin: auto;
         }
 
-        /* hand‑pressed paper effect */
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            right: 20px;
-            height: 30px;
-            background: radial-gradient(ellipse at 50% 0%, rgba(140, 90, 50, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
+        @keyframes cellFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
 
-        /* deckle edge simulation */
-        .container::after {
-            content: "";
-            position: absolute;
-            bottom: -6px;
-            left: 10%;
-            width: 80%;
-            height: 12px;
-            background: repeating-linear-gradient(110deg, #8b6f4c 0px, #8b6f4c 3px, transparent 3px, transparent 8px);
-            opacity: 0.3;
-            filter: blur(1px);
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         h1 {
-            font-size: clamp(1.8rem, 7vw, 3.3rem);
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #4e3a28;
-            text-shadow: 1px 1px 0 #dac5ad, 3px 3px 0 rgba(150, 110, 70, 0.15);
-            border-bottom: 1px dashed #b48d67;
-            padding-bottom: 0.3rem;
-            margin-bottom: 0.75rem;
-            font-family: 'Courier Prime', 'Goudy Bookletter 1911', monospace;
-            text-transform: uppercase;
-            word-break: break-word;
+            font-size: 3.5rem;
+            color: var(--burgundy-bright);
+            font-family: 'Cinzel Decorative', cursive;
+            text-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+            margin-bottom: 5px;
+            letter-spacing: 4px;
         }
 
-        .heart {
-            font-size: 2.2rem;
-            color: #ac4e4e;
-            filter: drop-shadow(2px 2px 2px #ccaa8e);
+        .heart-symbol {
             display: inline-block;
-            transform: rotate(2deg);
+            color: var(--gold);
+            animation: heartbeat 2s infinite ease-in-out;
         }
 
-        .sub {
-            font-size: 1rem;
-            font-style: italic;
-            color: #67533d;
-            background: #ebddcd;
-            display: inline-block;
-            padding: 0.4rem 1.5rem;
-            border-radius: 40px 8px 40px 8px;
-            letter-spacing: 0.3px;
-            box-shadow: inset 0 1px 5px #ffe3c5, 0 3px 4px #af8f70;
-            border-left: 4px solid #ad7b57;
-            margin-top: 5px;
-            margin-bottom: 25px;
-            font-family: 'Georgia', serif;
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+                filter: brightness(1.3) drop-shadow(0 0 5px var(--gold));
+            }
         }
+
+        .personal {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--silver);
+            letter-spacing: 5px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* ===== COUNTDOWN ===== */
 
         .timer {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            gap: 20px;
             justify-content: center;
-            margin: 40px 0 30px 0;
+            margin: 50px 0;
+            flex-wrap: wrap;
         }
 
         .time-box {
-            background: #e3cfb5;   /* worn paper */
-            border: 2px solid #a1815f;
-            outline: 1px solid #f4e2cd;
-            outline-offset: 2px;
-            box-shadow: 5px 5px 10px rgba(100, 65, 35, 0.25), inset -2px -2px 8px #836e51, inset 3px 3px 10px #fdf1df;
-            padding: 1rem 0.8rem;
-            min-width: 90px;
-            flex: 1 0 70px;
-            border-radius: 30px 2px 30px 2px;
-            font-family: 'Special Elite', 'Courier New', monospace;
-            transition: 0.2s;
-        }
-
-        .time-box:hover {
-            transform: scale(0.98);
-            background: #ddc7ac;
-            box-shadow: inset 0 0 10px #957859;
+            padding: 20px 10px;
+            width: 110px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+            color: var(--gold);
+            position: relative;
         }
 
         .time-box span:first-child {
             display: block;
-            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-size: 2.8rem;
+            font-family: 'Cinzel', serif;
             font-weight: 700;
-            line-height: 1;
-            color: #2b1f13;
-            text-shadow: 2px 2px 0 #cbb295;
-            letter-spacing: 4px;
-            margin-bottom: 6px;
-            font-feature-settings: "tnum";
         }
 
         .time-box span:last-child {
-            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: var(--silver);
+            letter-spacing: 2px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* ===== TYPING MESSAGE ===== */
+
+        .message {
+            font-size: 1rem;
+            margin-top: 30px;
+            min-height: 50px;
+            color: var(--text-light);
+            font-family: 'Special Elite', cursive;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        /* ===== BUTTONS ===== */
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 14px 28px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-transform: uppercase;
             letter-spacing: 2px;
-            background: #ac8b67;
-            color: #faf0dc;
-            padding: 5px 0;
-            border-radius: 30px 1px 30px 1px;
-            border-top: 2px solid #4f3a25;
+        }
+
+        button:hover {
+            background: var(--gold);
+            color: var(--bg-deep);
+            box-shadow: 0 0 20px rgba(197, 160, 33, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* SURPRISE MODAL */
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            display: inline-block;
-            font-weight: 500;
-            box-shadow: inset 0 -1px 3px #2e2218;
-        }
-
-        .funny-msg {
-            font-size: 1.2rem;
-            background: #eedbcb;
-            padding: 1.2rem 1rem;
-            margin: 25px 0 10px 0;
-            border-left: 10px solid #6f4f35;
-            border-right: 4px double #b59573;
-            border-radius: 60px 8px 60px 8px;
-            color: #402f21;
-            font-style: italic;
-            font-family: 'Kalam', 'Comic Neue', cursive;
-            box-shadow: 0 8px 12px -8px #5e4130, inset 0 1px 4px #fcf3e5;
-            word-break: break-word;
-            min-height: 85px;
-            display: flex;
-            align-items: center;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.98);
+            display: none;
             justify-content: center;
-            line-height: 1.5;
-            text-shadow: 0 1px 0 white;
+            align-items: center;
+            color: var(--burgundy-bright);
+            font-size: 2rem;
+            font-family: 'Cinzel Decorative', cursive;
+            text-align: center;
+            padding: 40px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        /* aged folio decoration */
-        .colophon {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 16px;
-            font-size: 0.75rem;
-            color: #8b7356;
-            text-transform: uppercase;
-            border-top: 1px dotted #ab8e6d;
-            padding-top: 8px;
+        .modal div {
+            border: 1px solid var(--gold);
+            padding: 60px;
+            max-width: 600px;
+            box-shadow: 0 0 50px rgba(94, 11, 11, 0.2);
         }
 
-        .colophon span {
-            background: #ddcdb2;
-            padding: 0 8px;
-            border-radius: 40px;
-        }
+        /* ===== MOBILE ===== */
 
-        /* responsive */
-        @media (max-width: 450px) {
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
             .container {
-                padding: 1.2rem 1rem 1.8rem 1rem;
-                border-width: 8px double;
+                padding: 50px 20px;
             }
-            .timer {
-                gap: 6px;
-            }
-            .time-box {
-                min-width: 65px;
-                padding: 0.7rem 0.2rem;
-            }
-            .time-box span:first-child {
-                font-size: 2rem;
-            }
-            .funny-msg {
-                font-size: 1rem;
-                padding: 1rem 0.7rem;
-            }
-            h1 {
-                font-size: 1.7rem;
-            }
-        }
 
-        @media (max-width: 350px) {
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+            }
+
+            .personal {
+                font-size: 0.8rem;
+                letter-spacing: 3px;
+            }
+
+            .time-box {
+                width: 80px;
+                padding: 15px 5px;
+            }
+
             .time-box span:first-child {
                 font-size: 1.8rem;
             }
-            .time-box span:last-child {
+
+            .btn-group {
+                gap: 10px;
+            }
+
+            button {
+                padding: 12px 20px;
                 font-size: 0.7rem;
+            }
+
+            .modal {
+                font-size: 1.2rem;
+            }
+
+            .modal div {
+                padding: 30px;
+            }
+
+            .jail-bars .bar:nth-child(even) {
+                display: none;
             }
         }
 
-        /* prompt style */
-        .prompt-note {
-            background: #ac8f70;
-            color: #fffaed;
-            padding: 6px 15px;
-            border-radius: 50px 5px 50px 5px;
-            font-size: 0.9rem;
-            font-family: 'Courier New', monospace;
-            display: inline-block;
-            margin-top: 25px;
-            border: 1px solid #fedbba;
-            letter-spacing: 0.5px;
-            box-shadow: inset 0 -2px 0 #4a3725;
+        /* confetti */
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            top: -10px;
+            animation: fall 5s linear infinite;
+            z-index: 100;
         }
 
-        .prompt-note i {
-            font-style: normal;
-            background: #3a2b1c;
-            padding: 2px 8px;
-            border-radius: 30px;
-            margin-right: 6px;
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Countdown to 17 may <span class="heart">☙</span></h1>
-        <div class="sub">professional in the streets · vintage in the sheets</div>
 
-        <!-- antique countdown boxes -->
+<body>
+
+    <!-- JAIL BARS OVERLAY -->
+    <div class="jail-bars">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- BLOOD DRIPS -->
+    <div class="drip" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="drip" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="drip" style="left: 70%; animation-delay: 1s;"></div>
+    <div class="drip" style="left: 90%; animation-delay: 3s;"></div>
+
+    <div class="container">
+
+        <h1>LOVE LOCK <span class="heart-symbol">❤</span></h1>
+        <div class="personal">EST. MAY 17 | LOCKDOWN PROTOCOL</div>
+
         <div class="timer">
             <div class="time-box"><span id="days">00</span><span>days</span></div>
             <div class="time-box"><span id="hours">00</span><span>hours</span></div>
@@ -274,92 +399,109 @@
             <div class="time-box"><span id="seconds">00</span><span>seconds</span></div>
         </div>
 
-        <!-- weathered message area -->
-        <div class="funny-msg" id="joke">Turning another page closer to May 17...</div>
+        <div class="message" id="typing"></div>
 
-        <!-- little prompt + mobile friendly vintage style -->
-        <div class="prompt-note">
-            <i>📜</i> prompt: may 17 · old book edition · leaf through
+        <div class="btn-group">
+            <button onclick="playMusic()">Play Cinematic Music 🎵</button>
+            <button onclick="showSurprise()">Locked Surprise 🔐</button>
         </div>
 
-        <div class="colophon">
-            <span>✎ 1825 edition</span>
-            <span>hand‑numbered</span>
-            <span>☕ foxed pages</span>
+    </div>
+
+    <!-- SURPRISE MODAL -->
+    <div class="modal" id="modal">
+        <div>
+            ACCESS DENIED!<br><br>
+            BHAI KATEGA CAKE...<br>
+            BUT ONLY ON MAY 17! 🩸
         </div>
     </div>
 
+    <!-- MUSIC -->
+    <audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
     <script>
-        (function() {
-            // Target: May 17 2026 (same as original, but keep vintage feeling)
-            const targetDate = new Date("May 17, 2026 00:00:00").getTime();
+        /* ===== COUNTDOWN ===== */
+        const targetDate = new Date("May 17, 2026 00:00:00").getTime();
 
-            const jokes = [
-                "One step closer to becoming a vintage classic! (folio LXXIV)",
-                "Countdown to the day you legally have to be spoiled — bookbinder’s note.",
-                "Warning: Levels of 'Birthday Diva' are rising, like old paper grain.",
-                "I love you more than old leather and linen bindings.",
-                "Antique heart, modern love — 17th May is almost here.",
-                "Yellowed pages, but your smile is timeless.",
-                "Another day, another manuscript. This one ends with cake.",
-                "You’re the rarest first edition. 💌"
-            ];
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = targetDate - now;
 
-            let jokeTimer;
-            const jokeElement = document.getElementById("joke");
+            const d = Math.floor(gap / (1000 * 60 * 60 * 24));
+            const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((gap % (1000 * 60)) / 1000);
 
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const gap = targetDate - now;
-
-                // If birthday passed? we keep counting positive, but if negative we show 00 gracefully (optional)
-                const absGap = Math.abs(gap);
-                const d = Math.floor(absGap / (1000 * 60 * 60 * 24));
-                const h = Math.floor((absGap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((absGap % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((absGap % (1000 * 60)) / 1000);
-
-                // if birthday passed, we could indicate but we follow original spirit (counts time remaining until next May 17)
-                // but to be precise, if current date > target, target is next year's May 17? original used May 17, 2026 (fixed). 
-                // To keep it friendly, we keep fixed 2026 – that’s the charm. it will count down years if we cross?
-                // let's simply update display (negative not shown). But we keep as original.
-                if (gap < 0) {
-                    // if past target, we still show zero as celebration mode (or you could restart)
-                    // but to keep retro, show zeros and a special msg.
-                    document.getElementById("days").innerText = "00";
-                    document.getElementById("hours").innerText = "00";
-                    document.getElementById("minutes").innerText = "00";
-                    document.getElementById("seconds").innerText = "00";
-                    jokeElement.innerText = "The vintage tome is open – Happy Birthday! 🥂";
-                } else {
-                    document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-                    document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-                    document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-                    document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
-                }
+            if (gap < 0) {
+                document.getElementById("typing").innerText = "THE LOCK IS OPEN! HAPPY BIRTHDAY! ❤️";
+                document.querySelector("h1").innerText = "HAPPY BIRTHDAY";
+                document.getElementById("modal").innerHTML = "<div>HAPPY BIRTHDAY BSF! ❤️<br><br>THE HEART IS UNLOCKED!</div>";
             }
 
-            function setRandomJoke() {
-                if (!jokeElement) return;
-                // only pick if not in "birthday passed" permanent state? we want it always fresh.
-                if (new Date().getTime() < targetDate) {
-                    // pick one randomly, sometimes matches seconds but okay.
-                    const randomIdx = Math.floor(Math.random() * jokes.length);
-                    jokeElement.innerText = jokes[randomIdx];
-                } else {
-                    jokeElement.innerText = "Happy birthday, you antique treasure! 🕰️";
-                }
+            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        /* ===== TYPING EFFECT (Funny Quotes) ===== */
+        const texts = [
+            "Bhai ka bday h, system hang hoga...",
+            "Bhai katega cake, baki sab side me...",
+            "Love Lock me swagat h, bestie!",
+            "17 May ko hi unlock hoga...",
+            "Counting down for the chaos...",
+            "Bhagwan kare tera cake koi na khaye (jk)..."
+        ];
+
+        let textIndex = 0, charIndex = 0;
+
+        function type() {
+            if (charIndex < texts[textIndex].length) {
+                document.getElementById("typing").innerHTML += texts[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 60);
+            } else {
+                setTimeout(() => {
+                    document.getElementById("typing").innerHTML = "";
+                    charIndex = 0;
+                    textIndex = (textIndex + 1) % texts.length;
+                    type();
+                }, 3000);
             }
+        }
+        type();
 
-            // update countdown every second
-            setInterval(updateCountdown, 1000);
-            // change joke every 6 seconds (instead of 5, feels calmer)
-            setInterval(setRandomJoke, 6000);
+        /* ===== MUSIC ===== */
 
-            // run once immediately to avoid empty fields
-            updateCountdown();
-            setRandomJoke();
-        })();
+        function playMusic() {
+            document.getElementById("music").play();
+        }
+
+        /* ===== SURPRISE ===== */
+
+        function showSurprise() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        /* ===== CONFETTI ===== */
+
+        function startConfetti() {
+            for (let i = 0; i < 100; i++) {
+                let conf = document.createElement("div");
+                conf.className = "confetti";
+                conf.style.left = Math.random() * 100 + "%";
+                conf.style.background = `hsl(${Math.random() * 360},70%,50%)`;
+                conf.style.animationDuration = (3 + Math.random() * 3) + "s";
+                document.body.appendChild(conf);
+            }
+        }
+
     </script>
+
 </body>
+
 </html>
