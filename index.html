@@ -1,168 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nandu Halwai Birthday</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-/* Background animation */
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
-background-size:400% 400%;
-animation:gradient 12s ease infinite;
-color:white;
-}
-
-@keyframes gradient{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-/* Card container */
-.container{
-text-align:center;
-padding:40px;
-border-radius:25px;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(15px);
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-width:90%;
-max-width:600px;
-}
-
-/* Title */
-h1{
-font-size:32px;
-font-weight:700;
-margin-bottom:10px;
-}
-
-/* subtitle */
-.subtitle{
-opacity:0.9;
-margin-bottom:30px;
-}
-
-/* countdown boxes */
-.countdown{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.time-box{
-background:rgba(255,255,255,0.2);
-padding:20px;
-border-radius:15px;
-min-width:90px;
-}
-
-.time{
-font-size:28px;
-font-weight:700;
-}
-
-.label{
-font-size:14px;
-opacity:0.8;
-}
-
-/* birthday message */
-#birthdayMsg{
-margin-top:30px;
-font-size:24px;
-display:none;
-animation:fadeIn 2s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Countdown - May 17</title>
+    <style>
+        body {
+            background-color: #fff5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #d63384;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #ffc1cf;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .timer {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .time-box {
+            background: #ff4d6d;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+        .time-box span { display: block; font-size: 2rem; font-weight: bold; }
+        .funny-msg {
+            font-style: italic;
+            color: #888;
+            margin-top: 20px;
+            min-height: 50px;
+        }
+        .heart { color: #ff4d6d; font-size: 1.5rem; }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <h1>Countdown to May 17 <span class="heart">❤</span></h1>
+    <p>Professional in the streets, celebrating you in the sheets (of this code).</p>
+    
+    <div class="timer">
+        <div class="time-box"><span id="days">00</span>Days</div>
+        <div class="time-box"><span id="hours">00</span>Hrs</div>
+        <div class="time-box"><span id="minutes">00</span>Min</div>
+        <div class="time-box"><span id="seconds">00</span>Sec</div>
+    </div>
 
-<h1>🎂 Nandu Halwai Birthday Countdown</h1>
-<p class="subtitle">Something special is coming ❤️</p>
-
-<div class="countdown">
-<div class="time-box">
-<div id="days" class="time">0</div>
-<div class="label">Days</div>
-</div>
-
-<div class="time-box">
-<div id="hours" class="time">0</div>
-<div class="label">Hours</div>
-</div>
-
-<div class="time-box">
-<div id="minutes" class="time">0</div>
-<div class="label">Minutes</div>
-</div>
-
-<div class="time-box">
-<div id="seconds" class="time">0</div>
-<div class="label">Seconds</div>
-</div>
-</div>
-
-<div id="birthdayMsg">
-🎉 Happy Birthday! You are truly special ❤️
-</div>
-
+    <div class="funny-msg" id="joke">Loading daily roast...</div>
 </div>
 
 <script>
+    // Set the target date: May 17 of the current or next year
+    const targetDate = new Date("May 17, 2026 00:00:00").getTime();
 
-// CHANGE DATE HERE
-let birthday = new Date("May 17, 2026 00:00:00").getTime();
+    const jokes = [
+        "One step closer to becoming a vintage classic!",
+        "Countdown to the day you legally have to be spoiled.",
+        "Warning: Levels of 'Birthday Diva' are rising.",
+        "I love you more than I love hitting 'Snooze'!"
+    ];
 
-let timer = setInterval(function(){
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const gap = targetDate - now;
 
-let now = new Date().getTime();
-let diff = birthday - now;
+        const d = Math.floor(gap / (1000 * 60 * 60 * 24));
+        const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((gap % (1000 * 60)) / 1000);
 
-let days = Math.floor(diff/(1000*60*60*24));
-let hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-let minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-let seconds = Math.floor((diff%(1000*60))/1000);
+        document.getElementById("days").innerText = d;
+        document.getElementById("hours").innerText = h;
+        document.getElementById("minutes").innerText = m;
+        document.getElementById("seconds").innerText = s;
 
-document.getElementById("days").innerText = days;
-document.getElementById("hours").innerText = hours;
-document.getElementById("minutes").innerText = minutes;
-document.getElementById("seconds").innerText = seconds;
+        // Change funny message every 5 seconds
+        if (s % 5 === 0) {
+            document.getElementById("joke").innerText = jokes[Math.floor(Math.random() * jokes.length)];
+        }
+    }
 
-if(diff <= 0){
-clearInterval(timer);
-document.querySelector(".countdown").style.display="none";
-document.getElementById("birthdayMsg").style.display="block";
-}
-
-},1000);
-
+    setInterval(updateCountdown, 1000);
 </script>
 
 </body>
