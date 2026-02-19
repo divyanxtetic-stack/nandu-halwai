@@ -3,100 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Countdown - May 17</title>
+    <title>Old book countdown · 17 May</title>
     <style>
+        /* vintage book foundation */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #fff5f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #b7a58b;  /* aged leather / book cover */
+            background-image: radial-gradient(circle at 30% 40%, #cfbea5 2px, transparent 2px), 
+                              radial-gradient(circle at 70% 80%, #cfbea5 1px, transparent 2px);
+            background-size: 50px 50px, 80px 80px;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            font-family: 'Goudy Bookletter 1911', 'Palatino', 'Georgia', 'Times New Roman', serif;
+            padding: 16px;
             margin: 0;
-            color: #d63384;
         }
+
         .container {
-            text-align: center;
-            padding: 40px;
-            border-radius: 20px;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid #ffc1cf;
+            max-width: 700px;
+            width: 100%;
+            background: #fbf3e0;      /* old paper */
+            background-image: 
+                linear-gradient(to bottom, rgba(200,170,140,0.1), rgba(220,190,160,0.2)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise" x="0%" y="0%" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.08 0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>');
+            background-blend-mode: overlay;
+            border: 14px double #9b7e5e;      /* antique double border */
+            border-radius: 20px 4px 24px 4px;
+            box-shadow: 
+                0 20px 35px -8px rgba(60, 40, 20, 0.7),
+                inset 0 -4px 8px rgba(160, 120, 80, 0.2),
+                inset 0 4px 6px #fff4e6;
+            padding: 2.2rem 1.8rem 2.5rem 1.8rem;
+            position: relative;
+            transition: all 0.2s ease;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* hand‑pressed paper effect */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            right: 20px;
+            height: 30px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(140, 90, 50, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* deckle edge simulation */
+        .container::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 10%;
+            width: 80%;
+            height: 12px;
+            background: repeating-linear-gradient(110deg, #8b6f4c 0px, #8b6f4c 3px, transparent 3px, transparent 8px);
+            opacity: 0.3;
+            filter: blur(1px);
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 7vw, 3.3rem);
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #4e3a28;
+            text-shadow: 1px 1px 0 #dac5ad, 3px 3px 0 rgba(150, 110, 70, 0.15);
+            border-bottom: 1px dashed #b48d67;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.75rem;
+            font-family: 'Courier Prime', 'Goudy Bookletter 1911', monospace;
+            text-transform: uppercase;
+            word-break: break-word;
+        }
+
+        .heart {
+            font-size: 2.2rem;
+            color: #ac4e4e;
+            filter: drop-shadow(2px 2px 2px #ccaa8e);
+            display: inline-block;
+            transform: rotate(2deg);
+        }
+
+        .sub {
+            font-size: 1rem;
+            font-style: italic;
+            color: #67533d;
+            background: #ebddcd;
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px 8px 40px 8px;
+            letter-spacing: 0.3px;
+            box-shadow: inset 0 1px 5px #ffe3c5, 0 3px 4px #af8f70;
+            border-left: 4px solid #ad7b57;
+            margin-top: 5px;
+            margin-bottom: 25px;
+            font-family: 'Georgia', serif;
+        }
+
         .timer {
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
             justify-content: center;
-            margin: 30px 0;
+            margin: 40px 0 30px 0;
         }
+
         .time-box {
-            background: #ff4d6d;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 80px;
+            background: #e3cfb5;   /* worn paper */
+            border: 2px solid #a1815f;
+            outline: 1px solid #f4e2cd;
+            outline-offset: 2px;
+            box-shadow: 5px 5px 10px rgba(100, 65, 35, 0.25), inset -2px -2px 8px #836e51, inset 3px 3px 10px #fdf1df;
+            padding: 1rem 0.8rem;
+            min-width: 90px;
+            flex: 1 0 70px;
+            border-radius: 30px 2px 30px 2px;
+            font-family: 'Special Elite', 'Courier New', monospace;
+            transition: 0.2s;
         }
-        .time-box span { display: block; font-size: 2rem; font-weight: bold; }
+
+        .time-box:hover {
+            transform: scale(0.98);
+            background: #ddc7ac;
+            box-shadow: inset 0 0 10px #957859;
+        }
+
+        .time-box span:first-child {
+            display: block;
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1;
+            color: #2b1f13;
+            text-shadow: 2px 2px 0 #cbb295;
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+            font-feature-settings: "tnum";
+        }
+
+        .time-box span:last-child {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ac8b67;
+            color: #faf0dc;
+            padding: 5px 0;
+            border-radius: 30px 1px 30px 1px;
+            border-top: 2px solid #4f3a25;
+            width: 100%;
+            display: inline-block;
+            font-weight: 500;
+            box-shadow: inset 0 -1px 3px #2e2218;
+        }
+
         .funny-msg {
+            font-size: 1.2rem;
+            background: #eedbcb;
+            padding: 1.2rem 1rem;
+            margin: 25px 0 10px 0;
+            border-left: 10px solid #6f4f35;
+            border-right: 4px double #b59573;
+            border-radius: 60px 8px 60px 8px;
+            color: #402f21;
             font-style: italic;
-            color: #888;
-            margin-top: 20px;
-            min-height: 50px;
+            font-family: 'Kalam', 'Comic Neue', cursive;
+            box-shadow: 0 8px 12px -8px #5e4130, inset 0 1px 4px #fcf3e5;
+            word-break: break-word;
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5;
+            text-shadow: 0 1px 0 white;
         }
-        .heart { color: #ff4d6d; font-size: 1.5rem; }
+
+        /* aged folio decoration */
+        .colophon {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: #8b7356;
+            text-transform: uppercase;
+            border-top: 1px dotted #ab8e6d;
+            padding-top: 8px;
+        }
+
+        .colophon span {
+            background: #ddcdb2;
+            padding: 0 8px;
+            border-radius: 40px;
+        }
+
+        /* responsive */
+        @media (max-width: 450px) {
+            .container {
+                padding: 1.2rem 1rem 1.8rem 1rem;
+                border-width: 8px double;
+            }
+            .timer {
+                gap: 6px;
+            }
+            .time-box {
+                min-width: 65px;
+                padding: 0.7rem 0.2rem;
+            }
+            .time-box span:first-child {
+                font-size: 2rem;
+            }
+            .funny-msg {
+                font-size: 1rem;
+                padding: 1rem 0.7rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .time-box span:first-child {
+                font-size: 1.8rem;
+            }
+            .time-box span:last-child {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* prompt style */
+        .prompt-note {
+            background: #ac8f70;
+            color: #fffaed;
+            padding: 6px 15px;
+            border-radius: 50px 5px 50px 5px;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+            display: inline-block;
+            margin-top: 25px;
+            border: 1px solid #fedbba;
+            letter-spacing: 0.5px;
+            box-shadow: inset 0 -2px 0 #4a3725;
+        }
+
+        .prompt-note i {
+            font-style: normal;
+            background: #3a2b1c;
+            padding: 2px 8px;
+            border-radius: 30px;
+            margin-right: 6px;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Countdown to 17 may <span class="heart">☙</span></h1>
+        <div class="sub">professional in the streets · vintage in the sheets</div>
 
-<div class="container">
-    <h1>Countdown to May 17 <span class="heart">❤</span></h1>
-    <p>Professional in the streets, celebrating you in the sheets (of this code).</p>
-    
-    <div class="timer">
-        <div class="time-box"><span id="days">00</span>Days</div>
-        <div class="time-box"><span id="hours">00</span>Hrs</div>
-        <div class="time-box"><span id="minutes">00</span>Min</div>
-        <div class="time-box"><span id="seconds">00</span>Sec</div>
+        <!-- antique countdown boxes -->
+        <div class="timer">
+            <div class="time-box"><span id="days">00</span><span>days</span></div>
+            <div class="time-box"><span id="hours">00</span><span>hours</span></div>
+            <div class="time-box"><span id="minutes">00</span><span>minutes</span></div>
+            <div class="time-box"><span id="seconds">00</span><span>seconds</span></div>
+        </div>
+
+        <!-- weathered message area -->
+        <div class="funny-msg" id="joke">Turning another page closer to May 17...</div>
+
+        <!-- little prompt + mobile friendly vintage style -->
+        <div class="prompt-note">
+            <i>📜</i> prompt: may 17 · old book edition · leaf through
+        </div>
+
+        <div class="colophon">
+            <span>✎ 1825 edition</span>
+            <span>hand‑numbered</span>
+            <span>☕ foxed pages</span>
+        </div>
     </div>
 
-    <div class="funny-msg" id="joke">Loading daily roast...</div>
-</div>
+    <script>
+        (function() {
+            // Target: May 17 2026 (same as original, but keep vintage feeling)
+            const targetDate = new Date("May 17, 2026 00:00:00").getTime();
 
-<script>
-    // Set the target date: May 17 of the current or next year
-    const targetDate = new Date("May 17, 2026 00:00:00").getTime();
+            const jokes = [
+                "One step closer to becoming a vintage classic! (folio LXXIV)",
+                "Countdown to the day you legally have to be spoiled — bookbinder’s note.",
+                "Warning: Levels of 'Birthday Diva' are rising, like old paper grain.",
+                "I love you more than old leather and linen bindings.",
+                "Antique heart, modern love — 17th May is almost here.",
+                "Yellowed pages, but your smile is timeless.",
+                "Another day, another manuscript. This one ends with cake.",
+                "You’re the rarest first edition. 💌"
+            ];
 
-    const jokes = [
-        "One step closer to becoming a vintage classic!",
-        "Countdown to the day you legally have to be spoiled.",
-        "Warning: Levels of 'Birthday Diva' are rising.",
-        "I love you more than I love hitting 'Snooze'!"
-    ];
+            let jokeTimer;
+            const jokeElement = document.getElementById("joke");
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const gap = targetDate - now;
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const gap = targetDate - now;
 
-        const d = Math.floor(gap / (1000 * 60 * 60 * 24));
-        const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((gap % (1000 * 60)) / 1000);
+                // If birthday passed? we keep counting positive, but if negative we show 00 gracefully (optional)
+                const absGap = Math.abs(gap);
+                const d = Math.floor(absGap / (1000 * 60 * 60 * 24));
+                const h = Math.floor((absGap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((absGap % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((absGap % (1000 * 60)) / 1000);
 
-        document.getElementById("days").innerText = d;
-        document.getElementById("hours").innerText = h;
-        document.getElementById("minutes").innerText = m;
-        document.getElementById("seconds").innerText = s;
+                // if birthday passed, we could indicate but we follow original spirit (counts time remaining until next May 17)
+                // but to be precise, if current date > target, target is next year's May 17? original used May 17, 2026 (fixed). 
+                // To keep it friendly, we keep fixed 2026 – that’s the charm. it will count down years if we cross?
+                // let's simply update display (negative not shown). But we keep as original.
+                if (gap < 0) {
+                    // if past target, we still show zero as celebration mode (or you could restart)
+                    // but to keep retro, show zeros and a special msg.
+                    document.getElementById("days").innerText = "00";
+                    document.getElementById("hours").innerText = "00";
+                    document.getElementById("minutes").innerText = "00";
+                    document.getElementById("seconds").innerText = "00";
+                    jokeElement.innerText = "The vintage tome is open – Happy Birthday! 🥂";
+                } else {
+                    document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+                    document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+                    document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+                    document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+                }
+            }
 
-        // Change funny message every 5 seconds
-        if (s % 5 === 0) {
-            document.getElementById("joke").innerText = jokes[Math.floor(Math.random() * jokes.length)];
-        }
-    }
+            function setRandomJoke() {
+                if (!jokeElement) return;
+                // only pick if not in "birthday passed" permanent state? we want it always fresh.
+                if (new Date().getTime() < targetDate) {
+                    // pick one randomly, sometimes matches seconds but okay.
+                    const randomIdx = Math.floor(Math.random() * jokes.length);
+                    jokeElement.innerText = jokes[randomIdx];
+                } else {
+                    jokeElement.innerText = "Happy birthday, you antique treasure! 🕰️";
+                }
+            }
 
-    setInterval(updateCountdown, 1000);
-</script>
+            // update countdown every second
+            setInterval(updateCountdown, 1000);
+            // change joke every 6 seconds (instead of 5, feels calmer)
+            setInterval(setRandomJoke, 6000);
 
+            // run once immediately to avoid empty fields
+            updateCountdown();
+            setRandomJoke();
+        })();
+    </script>
 </body>
 </html>
